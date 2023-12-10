@@ -4,9 +4,18 @@ using UnityEngine;
 
 public class Grid<T>
 {
-    private int _cellSize;
+    private float _cellSize;
+    private Vector3 _worldOffset;
 
-    public T[,] _grid;
+    private T[,] _grid;
+
+    public T this[int x, int y] => _grid[x, y];
+    public T this[Vector2Int gridPosition] => GetItem(gridPosition);
+
+    public int GetLength(int dimension = 0)
+    {
+        return _grid.GetLength(dimension);
+    }
 
     public void SetItem(Vector2Int gridPosition, T item)
     {
@@ -18,19 +27,40 @@ public class Grid<T>
         return _grid[gridPosition.x, gridPosition.y];
     }
 
-    Grid(T[,] grid, int cellSize)
+    public Grid(T[,] grid, float cellSize,Vector3 worldOffset = new Vector3())
     {
         _grid = grid;
-        _cellSize = cellSize; 
+        _cellSize = cellSize;
+        _worldOffset = worldOffset;
+    }
+
+    public static Grid<T> CreateGridAtCenter(T[,] grid, float cellSize,Vector3 worldOffset = new Vector3())
+    {
+        Grid<T> firstGrid = new Grid<T>(grid, cellSize, worldOffset);
+        Vector3 centerPosition = firstGrid.GetCenterPosition();
+        Vector3 lowestWorldPosition = firstGrid.GridToWorldPosition(0, 0) - (new Vector3(1,0,1) * cellSize / 2);
+        worldOffset = lowestWorldPosition - centerPosition;
+
+        return new Grid<T>(grid, cellSize, worldOffset);
+
     }
 
     public Vector3 GridToWorldPosition(Vector2Int gridPosition)
     {
-        return (new Vector3(gridPosition.x, gridPosition.y) * _cellSize) + (Vector3)(Vector2.one * _cellSize / 2);
+        return GridToWorldPosition(gridPosition.x, gridPosition.y);
+    }
+
+    public Vector3 GridToWorldPosition(int x, int y)
+    {
+        Vector3 tileCorner = new Vector3(x, 0, y) * _cellSize;
+        Vector3 tileHalf = (new Vector3(1, 0, 1) * _cellSize) / 2;
+        return tileCorner + tileHalf + _worldOffset;
     }
 
     public Vector2Int WorldToGridPosition(Vector3 worldPosition)
     {
+        worldPosition = worldPosition - _worldOffset;
+        
         int x = Mathf.FloorToInt(worldPosition.x / _cellSize);
         int y = Mathf.FloorToInt(worldPosition.y / _cellSize);
 
@@ -40,5 +70,16 @@ public class Grid<T>
     public bool IsValidPosition(int x, int y)
     {
         return x >= 0 && y >= 0 && x < _grid.GetLength(0) && y < _grid.GetLength(1);
+    }
+
+    public Vector3 GetCenterPosition()
+    {
+        int gridLengthX = _grid.GetLength(0) - 1;
+        int gridLengthY = _grid.GetLength(1) - 1;
+        
+        Vector3 highestWorldPosition = GridToWorldPosition(gridLengthX, gridLengthY) + new Vector3(1,0,1) * (_cellSize / 2);
+        Vector3 lowestWorldPosition = GridToWorldPosition(0, 0) - new Vector3(1,0,1) * (_cellSize / 2);
+        
+        return lowestWorldPosition + ((highestWorldPosition - lowestWorldPosition) / 2);
     }
 }
