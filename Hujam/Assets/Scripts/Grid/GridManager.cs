@@ -5,28 +5,20 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
-    private Grid<Tile> _grid;
+    public Grid<Tile> grid { get; private set; }
 
-    public GameObject tilePrefab;
     
     
 
     private void Awake()
     {
-        _grid = Grid<Tile>.CreateGridAtCenter(new Tile[500, 500], 1);
-
-        for (int x = 0; x < _grid.GetLength(0); x++)
-        {
-            for (int y = 0; y < _grid.GetLength(1); y++)
-            {
-                Instantiate(tilePrefab, _grid.GridToWorldPosition(x, y), Quaternion.identity);
-            }
-        }
+        grid = Grid<Tile>.CreateGridAtCenter(new Tile[100, 100], 1);
+        
     }
 
-    public bool IsFull(int x, int y)
+    private bool IsFull(int x, int y)
     {
-        return _grid[x, y].isFull;
+        return grid[x, y].isFull;
     }
     
     public bool IsFull(Vector2Int gridPosition)
@@ -36,13 +28,87 @@ public class GridManager : MonoBehaviour
 
     public bool IsFull(Vector3 worldPosition)
     {
-        Vector2Int gridPosition = _grid.WorldToGridPosition(worldPosition);
+        Vector2Int gridPosition = grid.WorldToGridPosition(worldPosition);
         return IsFull(gridPosition);
     }
 
-    public void PlaceBuilding(Vector2Int,Building building)
+    private void PlaceBuilding(Building building ,Vector2Int gridPosition)
     {
-        
+        Tile tile = grid[gridPosition];
+
+        tile.Building = building;
+        tile.isFull = true;
+
+        building.transform.position = grid.GridToWorldPosition(gridPosition);
+        grid[gridPosition] = tile;
     }
+
+    public bool TryPlaceBuilding(Building building,Vector2Int gridPosition)
+    {
+        Tile tile = grid[gridPosition];
+
+        if (!IsBuildingPlaceable(building, gridPosition))
+            return false;
+
+        PlaceBuilding(building,gridPosition);
+
+        return true;
+    }
+
+    public bool IsBuildingPlaceable(Building building,Vector2Int gridPosition)
+    {
+        Tile tile = grid[gridPosition];
+        
+        if (tile.isFull)
+            return false;
+
+        if (!building.BuildingData.placeableTileTypeList.Contains(tile.TileType))
+            return false;
+
+        return true;
+    }
+    
+    public bool IsBuildingPlaceable(Building building,Vector3 worldPosition)
+    {
+        Vector2Int gridPosition = grid.WorldToGridPosition(worldPosition);
+        Debug.Log(gridPosition);
+        return IsBuildingPlaceable(building, gridPosition);
+    }
+
+    public bool TryPlaceBuilding(Building building, Vector3 worldPosition)
+    {
+        Vector2Int gridPosition = grid.WorldToGridPosition(worldPosition);
+        return TryPlaceBuilding(building, gridPosition);
+    }
+
+    private Building RemoveBuilding(Vector2Int gridPosition)
+    {
+        Tile tile = grid[gridPosition];
+        Building buildingToReturn = tile.Building;
+        
+        tile.Building = null;
+        tile.isFull = false;
+        
+        return buildingToReturn;
+    }
+
+    public bool TryRemoveBuilding(Vector2Int gridPosition, out Building building)
+    {
+        building = null;
+        
+        if (!grid[gridPosition].isFull)
+            return false;
+
+        building = RemoveBuilding(gridPosition);
+        return true;
+    }
+
+    public bool TryRemoveBuilding(Vector3 worldPosition, out Building building)
+    {
+        Vector2Int gridPosition = grid.WorldToGridPosition(worldPosition);
+        return TryRemoveBuilding(gridPosition, out building);
+    }
+    
+    
     
 }

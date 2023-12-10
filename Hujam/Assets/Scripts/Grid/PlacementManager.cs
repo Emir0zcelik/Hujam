@@ -6,25 +6,54 @@ using UnityEngine;
 [RequireComponent(typeof(GridManager))]
 public class PlacementManager : MonoBehaviour
 {
-    [SerializeField] private List<BuildingData> buildingDataList;
+    [SerializeField] private Building currentBuildingPrefab;
     [SerializeField] private GridManager _gridManager;
+
+    [SerializeField] private Camera _camera;
 
     private void Awake()
     {
         _gridManager = GetComponent<GridManager>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButtonUp(0))
+        {
+            Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+            Plane plane = new Plane(Vector3.up, Vector3.zero);
+
+            if (plane.Raycast(ray, out float distance))
+            {
+                Vector3 worldPosition = ray.GetPoint(distance);
+
+                Debug.Log(worldPosition);
+
+                TrySpawnBuilding(currentBuildingPrefab, worldPosition);
+            }
+        }
     }
-    
-    private void Spawn
+
+    private bool TrySpawnBuilding(Building buildingPrefab,Vector3 worldPosition)
+    {
+        if (!_gridManager.IsBuildingPlaceable(buildingPrefab, worldPosition))
+            return false;
+
+        if (PlayerStats.money < buildingPrefab.BuildingData.price)
+            return false;
+        
+        SpawnBuilding(buildingPrefab,worldPosition);
+        return true;
+    }
+
+    private void SpawnBuilding(Building buildingPrefab,Vector3 worldPosition)
+    {
+        Building instantiatedBuilding = Instantiate(buildingPrefab);
+
+        PlayerStats.money -= buildingPrefab.BuildingData.price;
+
+        _gridManager.TryPlaceBuilding(instantiatedBuilding, worldPosition);
+    }
 }

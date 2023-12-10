@@ -9,8 +9,16 @@ public class Grid<T>
 
     private T[,] _grid;
 
-    public T this[int x, int y] => _grid[x, y];
-    public T this[Vector2Int gridPosition] => GetItem(gridPosition);
+    public T this[int x, int y]
+    {
+        get => _grid[x, y];
+        set => _grid[x, y] = value;
+    }
+    public T this[Vector2Int gridPosition] 
+    {
+        get => _grid[gridPosition.x, gridPosition.y];
+        set => _grid[gridPosition.x, gridPosition.y] = value;
+    }
 
     public int GetLength(int dimension = 0)
     {
@@ -62,7 +70,7 @@ public class Grid<T>
         worldPosition = worldPosition - _worldOffset;
         
         int x = Mathf.FloorToInt(worldPosition.x / _cellSize);
-        int y = Mathf.FloorToInt(worldPosition.y / _cellSize);
+        int y = Mathf.FloorToInt(worldPosition.z / _cellSize);
 
         return new Vector2Int(x, y);
     }
