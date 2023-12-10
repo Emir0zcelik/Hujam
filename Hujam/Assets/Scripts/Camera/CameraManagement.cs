@@ -10,6 +10,8 @@ public class CameraManagement : MonoBehaviour
     private Vector3 _mousePosition;
     Vector3 _moveDirection;
 
+    [SerializeField] private Vector3 minMax;
+
     private void Update()
     {
         Vector3 mousePosition = Input.mousePosition;
@@ -17,44 +19,21 @@ public class CameraManagement : MonoBehaviour
 
         if (mousePosition.x < _borderSize || mousePosition.x > Screen.width - _borderSize || mousePosition.y < _borderSize || mousePosition.y > Screen.height - _borderSize)
         {
-            _moveDirection = GetMoveDirectionMouse(mousePosition);
+            _moveDirection = GetMoveDirection(mousePosition);
         }
         else
         {
-            _moveDirection = GetMoveDirectionKeyboard();
+            _moveDirection = GetMoveDirection();
         }
 
         transform.Translate(_moveDirection * _moveSpeed * Time.deltaTime);
+
+        transform.position = Extension.Clamp(transform.position , minMax);
+
     }
 
-    Vector3 GetMoveDirectionKeyboard()
-    {
-        Vector3 moveDirection = Vector3.zero;
-        
-        if (Input.GetKey(KeyCode.A))
-        {
-            moveDirection.x = -1;
-        }
 
-        if (Input.GetKey(KeyCode.D))
-        {
-            moveDirection.x = 1;
-        }
-
-        if (Input.GetKey(KeyCode.S))
-        {
-            moveDirection.y = -1;
-        }
-
-        if (Input.GetKey(KeyCode.W))
-        {
-            moveDirection.y = 1;
-        }
-
-        return moveDirection.normalized;
-    }
-
-    Vector3 GetMoveDirectionMouse(Vector3 mousePosition)
+    Vector3 GetMoveDirection(Vector3 moveVector)
     {
         Vector3 moveDirection = Vector3.zero;
 
@@ -67,13 +46,33 @@ public class CameraManagement : MonoBehaviour
             moveDirection.x = 1;
         }
 
-        if (mousePosition.y < _borderSize)
+        if (mousePosition.z < _borderSize)
         {
-            moveDirection.y = -1;
+            moveDirection.z = -1;
         }
-        else if (mousePosition.y > Screen.height - _borderSize)
+        else if (mousePosition.z > Screen.height - _borderSize)
         {
-            moveDirection.y = 1;
+            moveDirection.z = 1;
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            moveDirection.x = -1;
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            moveDirection.x = 1;
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            moveDirection.z = -1;
+        }
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            moveDirection.z = 1;
         }
 
         return moveDirection;
