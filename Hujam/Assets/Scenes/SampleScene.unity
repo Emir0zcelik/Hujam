@@ -350,8 +350,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _borderSize: 100
   _moveSpeed: 40
-  minMaxX: {x: -50, y: 50}
-  minMaxZ: {x: -140, y: 100}
+  minMaxX: {x: -115, y: 115}
+  minMaxZ: {x: -145, y: 100}
 --- !u!1001 &488576011
 PrefabInstance:
   m_ObjectHideFlags: 0
