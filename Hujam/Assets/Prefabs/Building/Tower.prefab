@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 6342598110469265570}
   - component: {fileID: 9214813616946375784}
   - component: {fileID: 6342598110469265571}
-  m_Layer: 0
+  - component: {fileID: 5423396878650563218}
+  m_Layer: 8
   m_Name: Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,6 +100,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BuildingData: {fileID: 11400000, guid: f618bd9d1c9b4cc45acf4dcd5aec79f4, type: 2}
+--- !u!135 &5423396878650563218
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7269201609705049533}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0.64, z: 0}
 --- !u!1001 &7401964248821525869
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -109,6 +123,10 @@ PrefabInstance:
     - target: {fileID: 1985655064596568, guid: ad907945c7e5c5d4087bfb2205c67d15, type: 3}
       propertyPath: m_Name
       value: Smoke 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985655064596568, guid: ad907945c7e5c5d4087bfb2205c67d15, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4140406644459286, guid: ad907945c7e5c5d4087bfb2205c67d15, type: 3}
       propertyPath: m_RootOrder

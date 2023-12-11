@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Smoke 1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1985655064596568, guid: ad907945c7e5c5d4087bfb2205c67d15, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4140406644459286, guid: ad907945c7e5c5d4087bfb2205c67d15, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -178,6 +182,25 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 644140a187d41504e931bba96a29b160, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1e000656b38d8047a26d676d681f7c5, type: 3}
+--- !u!1 &6021995669815515077 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7269201609705049533, guid: c1e000656b38d8047a26d676d681f7c5,
+    type: 3}
+  m_PrefabInstance: {fileID: 3995547732275206776}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &-3871419716294306662
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6021995669815515077}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0.64, z: 0}
 --- !u!4 &6402356752011693439 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8046442649577232135, guid: c1e000656b38d8047a26d676d681f7c5,

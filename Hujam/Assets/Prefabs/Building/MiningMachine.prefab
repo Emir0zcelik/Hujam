@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 6436378264016703149}
   - component: {fileID: 5843913442635081122}
   - component: {fileID: 3625426991029464750}
-  m_Layer: 0
+  - component: {fileID: 8921453989237960938}
+  m_Layer: 8
   m_Name: MiningMachine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,6 +114,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94af493287477e14bb27a4e3d4a37803, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  earnTime: 1
+  moneyAmount: 10
+--- !u!135 &8921453989237960938
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4778996083775598456}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0.64, z: 0}
 --- !u!1 &8947005213503085609
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,7 +141,7 @@ GameObject:
   - component: {fileID: 354486795248478828}
   - component: {fileID: 3269778210082120950}
   - component: {fileID: 4148287918055532036}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,6 +237,10 @@ PrefabInstance:
     - target: {fileID: 1985655064596568, guid: ad907945c7e5c5d4087bfb2205c67d15, type: 3}
       propertyPath: m_Name
       value: Smoke 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985655064596568, guid: ad907945c7e5c5d4087bfb2205c67d15, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4140406644459286, guid: ad907945c7e5c5d4087bfb2205c67d15, type: 3}
       propertyPath: m_RootOrder
