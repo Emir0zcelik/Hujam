@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6334587153709957248}
   - component: {fileID: 2699811326416963274}
   m_Layer: 0
-  m_Name: ToweWeapon
+  m_Name: TowerWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,8 +47,8 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 128
-  radius: 5
-  damage: 1
+  radius: 10
+  damage: 100
 --- !u!1 &7269201609705049533
 GameObject:
   m_ObjectHideFlags: 0

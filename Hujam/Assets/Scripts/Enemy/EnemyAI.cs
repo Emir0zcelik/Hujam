@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAI : StateMachine
+public class EnemyAI : StateMachine, IDamagable
 {
 	public Rigidbody rb;
     public float movementSpeed = 5.0f;
@@ -19,7 +19,12 @@ public class EnemyAI : StateMachine
         currentState = new MovingState(this, radius, targetLayer);
     }
 
-    public void TakeDamage(int damage)
+    public void DestroyEnemy()
+    {
+        Destroy(gameObject);
+    }
+
+    public void TakeDamage(float damage)
     {
         health -= damage;
 
@@ -28,10 +33,4 @@ public class EnemyAI : StateMachine
             DestroyEnemy();
         }
     }
-
-    public void DestroyEnemy()
-    {
-        Destroy(gameObject);
-    }
-
 }

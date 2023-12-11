@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Building : MonoBehaviour
+public class Building : MonoBehaviour, IDamagable
 {
     public BuildingData BuildingData;
+    public float health;
 
     public void TakeDamage(float damage)
     {
-        BuildingData.health -= damage;
+        health -= damage;
 
-        if (BuildingData.health <= 0)
+        if (health <= 0)
         {
             DestroyBuilding();
         }
