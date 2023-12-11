@@ -883,7 +883,7 @@ MonoBehaviour:
   movementSpeed: 4
   health: 0
   cacheTransform: {fileID: 0}
-  radius: 0
+  radius: 3
   damage: 10
   targetLayer:
     serializedVersion: 2

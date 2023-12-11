@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public interface State
@@ -74,9 +75,11 @@ public class MovingState : EnemyState
 
         Collider[] hitColliders = Physics.OverlapSphere(enemyAI.cacheTransform.position, radius, layer);
 
+        Debug.Log(hitColliders.Length);
+
         if (hitColliders.Length > 0 )
         {
-            enemyAI.currentState = new FightingState(enemyAI, hitColliders[0].GetComponent<Building>());
+            enemyAI.ChangeState(new FightingState(enemyAI, hitColliders[0].GetComponent<Building>()));
         }
     }
 
@@ -96,7 +99,7 @@ public class FightingState : EnemyState
 
     public override void OnStateEnter()
     {
-
+        enemyAI.rb.velocity = Vector3.zero;
     }
 
     public override void OnStateExit()

@@ -15,7 +15,6 @@ public class EnemyAI : StateMachine
 
     private void Awake()
     {
-        targetLayer = LayerMask.GetMask("Tower");
         cacheTransform = transform;
         currentState = new MovingState(this, radius, targetLayer);
     }
