@@ -12,7 +12,7 @@ public class GridManager : MonoBehaviour
 
     private void Awake()
     {
-        grid = Grid<Tile>.CreateGridAtCenter(new Tile[100, 100], 1);
+        grid = Grid<Tile>.CreateGridAtCenter(new Tile[250, 250], 1);
         
     }
 

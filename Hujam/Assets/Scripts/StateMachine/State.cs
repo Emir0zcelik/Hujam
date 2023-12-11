@@ -44,7 +44,7 @@ public class MovingState : EnemyState
 {
     public MovingState(EnemyAI enemyAI) : base(enemyAI)
     {
-
+       
     }
 
     public override void OnStateEnter()
@@ -59,12 +59,15 @@ public class MovingState : EnemyState
 
     public override void OnStateFixedUpdate()
     {
-        Rigidbody rb = enemyAI.GetComponent<Rigidbody>();
+        Vector3 direction = (Vector3.zero - enemyAI.rb.position).normalized;
 
-        Vector3 direction = (Vector3.zero - rb.position).normalized;
         float movementSpeed = enemyAI.movementSpeed;
 
-        rb.velocity = direction * movementSpeed;
+        enemyAI.rb.velocity = direction * movementSpeed;
+
+        direction.y = 0;
+        
+        enemyAI.transform.LookAt(direction);
     }
 
     public override void OnStateUpdate()

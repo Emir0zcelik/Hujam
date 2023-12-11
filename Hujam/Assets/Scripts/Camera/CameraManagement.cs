@@ -16,16 +16,7 @@ public class CameraManagement : MonoBehaviour
     {
         Vector3 mousePosition = Input.mousePosition;
 
-        Vector3 moveVector;
-
-        if (mousePosition.x < _borderSize ||  mousePosition.x > Screen.width - _borderSize || mousePosition.y < _borderSize || mousePosition.y > Screen.height - _borderSize)
-        {
-            moveVector = GetMoveDirectionMouse(mousePosition);
-        }
-        else
-        {
-            moveVector = GetMoveDirectionKeyboard();
-        }
+        Vector3 moveVector = GetMoveDirectionKeyboard();
         
         Move(moveVector);
 

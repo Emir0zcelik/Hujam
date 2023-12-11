@@ -20,7 +20,7 @@ public class PlacementManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && !Extension.IsPointerOverUIObject())
         {
             Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
             Plane plane = new Plane(Vector3.up, Vector3.zero);
@@ -28,8 +28,9 @@ public class PlacementManager : MonoBehaviour
             if (plane.Raycast(ray, out float distance))
             {
                 Vector3 worldPosition = ray.GetPoint(distance);
-
-                Debug.Log(worldPosition);
+                Vector2Int gridPosition = _gridManager.grid.WorldToGridPosition(worldPosition);
+                gridPosition = _gridManager.grid.ClampBorders(gridPosition);
+                worldPosition = _gridManager.grid.GridToWorldPosition(gridPosition);
 
                 TrySpawnBuilding(currentBuildingPrefab, worldPosition);
             }
@@ -55,5 +56,15 @@ public class PlacementManager : MonoBehaviour
         PlayerStats.money -= buildingPrefab.BuildingData.price;
 
         _gridManager.TryPlaceBuilding(instantiatedBuilding, worldPosition);
+    }
+
+    public void ChangeCurrentBuildingPrefab(Building building)
+    {
+        currentBuildingPrefab = building;
+    }
+    
+    public Building GetCurrentBuildingPrefab()
+    {
+        return currentBuildingPrefab;
     }
 }

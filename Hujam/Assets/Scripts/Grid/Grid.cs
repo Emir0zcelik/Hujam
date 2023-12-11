@@ -75,6 +75,12 @@ public class Grid<T>
         return new Vector2Int(x, y);
     }
 
+    public Vector2Int ClampBorders(Vector2Int gridPosition)
+    {
+        return new Vector2Int(Mathf.Clamp(gridPosition.x, 0, _grid.GetLength(0) - 1),
+            Mathf.Clamp(gridPosition.y, 0, _grid.GetLength(1) - 1));
+    }
+
     public bool IsValidPosition(int x, int y)
     {
         return x >= 0 && y >= 0 && x < _grid.GetLength(0) && y < _grid.GetLength(1);
