@@ -881,11 +881,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 6654022047821856368}
   movementSpeed: 4
-<<<<<<< Updated upstream
   health: 100
-=======
-  health: 200
->>>>>>> Stashed changes
   cacheTransform: {fileID: 0}
   radius: 3
   damage: 10
