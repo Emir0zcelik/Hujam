@@ -7,13 +7,16 @@ public class TowerWeapon : MonoBehaviour
         private Transform _transform;
         public float radius;
         public float damage;
+        public ParticleSystem ParticleSystem;
+
+        private Vector3 lastPosition;
 
         private void Awake()
         {
                 _transform = transform;
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
                 Collider[] colliders = Physics.OverlapSphere(_transform.position, radius, layerMask);
 
@@ -21,8 +24,21 @@ public class TowerWeapon : MonoBehaviour
                 { 
                         IDamagable damagable = colliders[0].GetComponent<IDamagable>(); 
                         Attack(damagable);
+                        ParticleSystem.Play();
+                        ParticleSystem.transform.forward = (colliders[0].transform.position - ParticleSystem.transform.position).normalized;
+
+                        lastPosition = colliders[0].transform.position;
+                }
+                else
+                {
+                        ParticleSystem.Stop();
                 }
                 
+        }
+
+        private void OnDrawGizmos()
+        {
+                Gizmos.DrawSphere(lastPosition,1);
         }
 
         private void Attack(IDamagable damagable)

@@ -3,10 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="66120b5f-73d1-4e79-bba1-77e57fc2e438" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Hujam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hujam/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Kenney/Particle samples/Materials/Spark.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Kenney/Particle samples/Materials/Spark.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Materials/Ray.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Materials/Ray.shadergraph" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Building/Tower.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Building/Tower.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/EnemyParent.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/EnemyParent.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyAI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyAI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Grid/PlacementManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Grid/PlacementManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tower/Building.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tower/Building.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tower/TowerWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tower/TowerWeapon.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,7 +17,6 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa25812.16280/IKFootSolver.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/EarnMoneyInTime.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/EnemySpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/IKFootSolver.cs" root0="FORCE_HIGHLIGHTING" />
@@ -112,6 +114,7 @@
       <workItem from="1702085604376" duration="10560000" />
       <workItem from="1702170316649" duration="7451000" />
       <workItem from="1702247870710" duration="13712000" />
+      <workItem from="1702290701989" duration="792000" />
     </task>
     <servers />
   </component>
