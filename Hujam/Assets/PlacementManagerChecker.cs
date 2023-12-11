@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(GridManager))]
@@ -13,6 +14,8 @@ public class PlacementManagerChecker : MonoBehaviour
 
     public Material greenMat;
     public Material redMat;
+
+    public TextMeshPro TextMeshPro;
 
     [SerializeField] private Camera _camera;
 
@@ -39,6 +42,8 @@ public class PlacementManagerChecker : MonoBehaviour
 
             _basicMeshTransform.position = gridCenterWorldPosition;
             _basicMeshFilter.sharedMesh = _placementManager.GetCurrentBuildingPrefab().GetComponent<MeshFilter>().sharedMesh;
+
+            TextMeshPro.text = "$"+_placementManager.GetCurrentBuildingPrefab().BuildingData.price;
 
             if (_gridManager.IsBuildingPlaceable(_placementManager.GetCurrentBuildingPrefab(), gridPosition))
             {

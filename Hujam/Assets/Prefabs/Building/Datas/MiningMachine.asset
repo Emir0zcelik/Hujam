@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db75c754ceb0f1942accb55f7a182b66, type: 3}
   m_Name: MiningMachine
   m_EditorClassIdentifier: 
-  price: 0
+  price: 1000
   nextUpgradeBuilding: {fileID: 0}
   placeableTileTypeList: 01000000
