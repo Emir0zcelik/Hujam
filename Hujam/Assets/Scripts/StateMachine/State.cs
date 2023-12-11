@@ -75,11 +75,9 @@ public class MovingState : EnemyState
 
         Collider[] hitColliders = Physics.OverlapSphere(enemyAI.cacheTransform.position, radius, layer);
 
-        Debug.Log(hitColliders.Length);
-
         if (hitColliders.Length > 0 )
         {
-            enemyAI.ChangeState(new FightingState(enemyAI, hitColliders[0].GetComponent<Building>()));
+            enemyAI.ChangeState(new FightingState(enemyAI, hitColliders[0].GetComponent<Building>(), layer));
         }
     }
 
@@ -92,9 +90,11 @@ public class MovingState : EnemyState
 public class FightingState : EnemyState
 {
     Building building;
-    public FightingState(EnemyAI enemyAI, Building building) : base(enemyAI)
+    LayerMask targetLayer;
+    public FightingState(EnemyAI enemyAI, Building building, LayerMask targetLayer) : base(enemyAI)
     {
         this .building = building;
+        this .targetLayer = targetLayer;
     }
 
     public override void OnStateEnter()
@@ -109,6 +109,12 @@ public class FightingState : EnemyState
 
     public override void OnStateFixedUpdate()
     {
+
+        if (building.health <= 0) 
+        {
+            enemyAI.ChangeState(new MovingState(enemyAI, enemyAI.radius, targetLayer));
+        }
+
         if (Physics.Raycast(enemyAI.cacheTransform.position, enemyAI.cacheTransform.forward, 20.0f, enemyAI.targetLayer)) 
         {
             building.TakeDamage(enemyAI.damage);

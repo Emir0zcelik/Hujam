@@ -6,22 +6,20 @@ using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
-
     private float _time;
-
     public GameObject enemyPrefab;
     public float spawnDistance = 200f;
-    public float baseMaxCooldown = 10;
+    public float baseMaxCooldown = 20;
     private float _cooldownTimer;
+    public float cooldDownDecreaseRate = 0.05f;
+    public float minCoolDown = 2f;
     
-    // Start is called before the first frame update
     void Awake()
     {
         _time = 0;
         _cooldownTimer = baseMaxCooldown;
     }
 
-    // Update is called once per frame
     void Update()
     {
         _time += Time.deltaTime;
@@ -34,7 +32,7 @@ public class EnemySpawner : MonoBehaviour
             Vector3 spawnPosition = new Vector3(randomDirection.x, 0, randomDirection.y);
             Instantiate(enemyPrefab, spawnPosition, quaternion.identity);
             
-            _cooldownTimer = Random.Range(0, baseMaxCooldown);
+            _cooldownTimer = Mathf.Max(minCoolDown, _cooldownTimer * (1 - cooldDownDecreaseRate));
         }
     }
 }
