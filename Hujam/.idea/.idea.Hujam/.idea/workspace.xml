@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="66120b5f-73d1-4e79-bba1-77e57fc2e438" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Hujam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hujam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Materials/Red.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Materials/Red.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PlacementManagerChecker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlacementManagerChecker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Building/Datas/MiningMachine.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Building/Datas/MiningMachine.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Building/Datas/Tower 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Building/Datas/Tower 1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Building/Datas/Tower 2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Building/Datas/Tower 2.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Building/Datas/Tower0.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Building/Datas/Tower0.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Building/MainBase.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Building/MainBase.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Building/MiningMachine.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Building/MiningMachine.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Building/Rock.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Building/Rock.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Building/Tower.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Building/Tower.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Building/Tower1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Building/Tower1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Building/Tower2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Building/Tower2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/EnemyParent.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/EnemyParent.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/BuildPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/BuildPanel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
-    </list>
+    <list default="true" id="66120b5f-73d1-4e79-bba1-77e57fc2e438" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,6 +9,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa25812.16280/IKFootSolver.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/EarnMoneyInTime.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/EnemySpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/IKFootSolver.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MoneyManager.cs" root0="FORCE_HIGHLIGHTING" />
