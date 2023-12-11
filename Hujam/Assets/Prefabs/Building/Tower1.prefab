@@ -7,12 +7,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1295539663789919627, guid: c1e000656b38d8047a26d676d681f7c5,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2699811326416963274, guid: c1e000656b38d8047a26d676d681f7c5,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2699811326416963274, guid: c1e000656b38d8047a26d676d681f7c5,
+        type: 3}
+      propertyPath: radius
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6334587153709957248, guid: c1e000656b38d8047a26d676d681f7c5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6342598110469265570, guid: c1e000656b38d8047a26d676d681f7c5,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1824602181772193008, guid: 92e83bb8152979542bd0bc484d3278d7,
         type: 3}
+    - target: {fileID: 6342598110469265571, guid: c1e000656b38d8047a26d676d681f7c5,
+        type: 3}
+      propertyPath: health
+      value: 250
+      objectReference: {fileID: 0}
     - target: {fileID: 6342598110469265571, guid: c1e000656b38d8047a26d676d681f7c5,
         type: 3}
       propertyPath: BuildingData

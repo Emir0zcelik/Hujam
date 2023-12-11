@@ -102,6 +102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BuildingData: {fileID: 11400000, guid: b89497f8bdf4bf04abb79d4a4d4d3aa7, type: 2}
+  health: 250
+  gridManager: {fileID: 0}
 --- !u!114 &3625426991029464750
 MonoBehaviour:
   m_ObjectHideFlags: 0

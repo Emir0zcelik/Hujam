@@ -54,6 +54,8 @@ public class PlacementManager : MonoBehaviour
         Building instantiatedBuilding = Instantiate(buildingPrefab);
 
         PlayerStats.money -= buildingPrefab.BuildingData.price;
+        
+        instantiatedBuilding.gridManager = _gridManager;
 
         _gridManager.TryPlaceBuilding(instantiatedBuilding, worldPosition);
     }

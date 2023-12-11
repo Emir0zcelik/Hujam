@@ -100,11 +100,14 @@ public class FightingState : EnemyState
     public override void OnStateEnter()
     {
         enemyAI.rb.velocity = Vector3.zero;
+        enemyAI.ParticleSystem.Play();
+        enemyAI.shotSource.Play();
     }
 
     public override void OnStateExit()
     {
-
+        enemyAI.ParticleSystem.Stop();
+        enemyAI.shotSource.Stop();
     }
 
     public override void OnStateFixedUpdate()
@@ -113,12 +116,11 @@ public class FightingState : EnemyState
         if (building.health <= 0) 
         {
             enemyAI.ChangeState(new MovingState(enemyAI, enemyAI.radius, targetLayer));
+            return;
         }
 
-        if (Physics.Raycast(enemyAI.cacheTransform.position, enemyAI.cacheTransform.forward, 20.0f, enemyAI.targetLayer)) 
-        {
-            building.TakeDamage(enemyAI.damage);
-        }
+        enemyAI.ParticleSystem.transform.forward = building.transform.position - enemyAI.ParticleSystem.transform.position;
+        building.TakeDamage(enemyAI.damage);
     }
 
     public override void OnStateUpdate()

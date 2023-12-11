@@ -6,7 +6,7 @@ public class StateMachine : MonoBehaviour
 {
     public State currentState;
 
-    void Update()
+    void FixedUpdate()
     {
         currentState.OnStateFixedUpdate();
     }

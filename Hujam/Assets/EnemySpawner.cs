@@ -12,6 +12,7 @@ public class EnemySpawner : MonoBehaviour
     public float baseMaxCooldown = 20;
     private float _cooldownTimer;
     public float cooldDownDecreaseRate = 0.05f;
+    public float cooldDownDecreaseRate2 = 0.05f;
     public float minCoolDown = 2f;
     
     void Awake()
@@ -27,12 +28,14 @@ public class EnemySpawner : MonoBehaviour
 
         if (_cooldownTimer <= 0)
         {
-            Vector2 randomDirection = new Vector2(Random.Range(0f, 1f), Random.Range(0f, 1f)).normalized;
+            Vector2 randomDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
             randomDirection *= spawnDistance;
             Vector3 spawnPosition = new Vector3(randomDirection.x, 0, randomDirection.y);
             Instantiate(enemyPrefab, spawnPosition, quaternion.identity);
+
+            cooldDownDecreaseRate += cooldDownDecreaseRate2;
             
-            _cooldownTimer = Mathf.Max(minCoolDown, _cooldownTimer * (1 - cooldDownDecreaseRate));
+            _cooldownTimer = Mathf.Max(minCoolDown, baseMaxCooldown - cooldDownDecreaseRate);
         }
     }
 }

@@ -11,6 +11,11 @@ public class EnemyAI : StateMachine, IDamagable
     public float radius;
     public float damage = 10f;
     public LayerMask targetLayer;
+
+    public ParticleSystem ParticleSystem;
+    public AudioSource shotSource;
+
+    public int destroyEarningAmount = 50;
     
 
     private void Awake()
@@ -28,8 +33,9 @@ public class EnemyAI : StateMachine, IDamagable
     {
         health -= damage;
 
-        if (health <= 0)  
+        if (health <= 0)
         {
+            PlayerStats.money += destroyEarningAmount;
             DestroyEnemy();
         }
     }
