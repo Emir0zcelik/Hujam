@@ -9,11 +9,15 @@ public class EnemyAI : StateMachine
     public float health;
     public Transform cacheTransform;
     public float radius;
+    public float damage = 10f;
+    public LayerMask targetLayer;
     
 
     private void Awake()
     {
-        currentState = new MovingState(this, radius);
+        targetLayer = LayerMask.GetMask("Tower");
+        cacheTransform = transform;
+        currentState = new MovingState(this, radius, targetLayer);
     }
 
     public void TakeDamage(int damage)

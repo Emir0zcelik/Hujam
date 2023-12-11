@@ -43,9 +43,11 @@ public class EnemyState : State
 public class MovingState : EnemyState
 {
     private float radius;
-    public MovingState(EnemyAI enemyAI, float radius) : base(enemyAI)
+    private LayerMask layer;
+    public MovingState(EnemyAI enemyAI, float radius, LayerMask layer) : base(enemyAI)
     {
        this.radius = radius;
+       this.layer = layer; 
     }
 
     public override void OnStateEnter()
@@ -70,7 +72,7 @@ public class MovingState : EnemyState
         
         enemyAI.transform.LookAt(direction);
 
-        Collider[] hitColliders = Physics.OverlapSphere(enemyAI.cacheTransform.position, radius);
+        Collider[] hitColliders = Physics.OverlapSphere(enemyAI.cacheTransform.position, radius, layer);
 
         if (hitColliders.Length > 0 )
         {
@@ -104,6 +106,10 @@ public class FightingState : EnemyState
 
     public override void OnStateFixedUpdate()
     {
+        if (Physics.Raycast(enemyAI.cacheTransform.position, enemyAI.cacheTransform.forward, 20.0f, enemyAI.targetLayer)) 
+        {
+            building.TakeDamage(enemyAI.damage);
+        }
     }
 
     public override void OnStateUpdate()

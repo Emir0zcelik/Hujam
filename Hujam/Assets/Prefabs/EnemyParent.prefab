@@ -881,6 +881,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 6654022047821856368}
   movementSpeed: 4
+  health: 0
+  cacheTransform: {fileID: 0}
+  radius: 0
+  damage: 10
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!54 &6654022047821856368
 Rigidbody:
   m_ObjectHideFlags: 0
