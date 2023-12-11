@@ -6,7 +6,7 @@ public class Building : MonoBehaviour
 {
     public BuildingData BuildingData;
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         BuildingData.health -= damage;
 
