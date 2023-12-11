@@ -18,7 +18,7 @@ public class TowerWeapon : MonoBehaviour
                 Collider[] colliders = Physics.OverlapSphere(_transform.position, radius, layerMask);
 
                 if (colliders.Length > 0)
-                {
+                { 
                         IDamagable damagable = colliders[0].GetComponent<IDamagable>(); 
                         Attack(damagable);
                 }
